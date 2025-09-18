@@ -18,17 +18,17 @@ const Menu = [
   },
   {
     id: 3,
-    name: "Kids Wear",
+    name: "Collections",
     link: "/#",
   },
   {
     id: 3,
-    name: "Mens Wear",
+    name: "All Products",
     link: "/#",
   },
   {
     id: 3,
-    name: "Electronics",
+    name: "Our Brands",
     link: "/#",
   },
 ];
@@ -59,8 +59,8 @@ const Navbar = ({ handleOrderPopup }) => {
         <div className="container flex justify-between items-center">
           <div>
             <a href="#" className="font-bold text-2xl sm:text-3xl flex gap-2">
-              <img src={Logo} alt="Logo" className="w-10" />
-              Shopsy
+              <img src={Logo} alt="Logo" className="w-14 border-2 border-color rounded-xl" />
+              ALURASTONE
             </a>
           </div>
 
@@ -136,3 +136,4 @@ const Navbar = ({ handleOrderPopup }) => {
 };
 
 export default Navbar;
+ 

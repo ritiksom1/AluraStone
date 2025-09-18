@@ -8,21 +8,21 @@ const ProductsData = [
   {
     id: 1,
     img: Img1,
-    title: "Casual Wear",
+    title: "Joi Ring",
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     id: 2,
     img: Img2,
-    title: "Printed shirt",
+    title: "Nuri Gold Band",
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     id: 3,
     img: Img3,
-    title: "Women shirt",
+    title: "Joi Ring",
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },

@@ -9,7 +9,7 @@ const ProductsData = [
   {
     id: 1,
     img: Img1,
-    title: "Women Ethnic",
+    title: "Adelina Ring",
     rating: 5.0,
     color: "white",
     aosDelay: "0",
@@ -17,7 +17,7 @@ const ProductsData = [
   {
     id: 2,
     img: Img2,
-    title: "Women western",
+    title: "Marzia Ring",
     rating: 4.5,
     color: "Red",
     aosDelay: "200",
@@ -25,7 +25,7 @@ const ProductsData = [
   {
     id: 3,
     img: Img3,
-    title: "Goggles",
+    title: "Zahra Ring",
     rating: 4.7,
     color: "brown",
     aosDelay: "400",
@@ -33,7 +33,7 @@ const ProductsData = [
   {
     id: 4,
     img: Img4,
-    title: "Printed T-Shirt",
+    title: "Desi Ring",
     rating: 4.4,
     color: "Yellow",
     aosDelay: "600",
@@ -41,7 +41,7 @@ const ProductsData = [
   {
     id: 5,
     img: Img2,
-    title: "Fashin T-Shirt",
+    title: "Nuri Gold Band",
     rating: 4.5,
     color: "Pink",
     aosDelay: "800",
