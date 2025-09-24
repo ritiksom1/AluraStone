@@ -1,5 +1,5 @@
 import React from "react";
-import BannerImg from "../../assets/women/women2.jpg";
+import BannerImg from "../../assets/women/women4.jpg";
 import { GrSecure } from "react-icons/gr";
 import { IoFastFood } from "react-icons/io5";
 import { GiFoodTruck } from "react-icons/gi";
@@ -27,8 +27,7 @@ const Banner = () => {
               data-aos="fade-up"
               className="text-sm text-gray-500 tracking-wide leading-5"
             >
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
-              reiciendis inventore iste ratione ex alias quis magni at optio
+              "Discover timeless rings crafted with passion and precision. From everyday elegance to unforgettable moments, our collection is designed to make you shine."
             </p>
             <div className="flex flex-col gap-4">
               <div data-aos="fade-up" className="flex items-center gap-4">

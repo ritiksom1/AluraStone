@@ -10,21 +10,21 @@ const ProductsData = [
     img: Img1,
     title: "Joi Ring",
     description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+       "The Joi Ring is a timeless blend of elegance and simplicity. Crafted with precision, its sleek design and refined finish make it perfect for both everyday wear and special occasions. A symbol of grace and sophistication, this ring adds a subtle yet striking touch to your style.",
   },
   {
     id: 2,
     img: Img2,
     title: "Nuri Gold Band",
     description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+       "The Nuri Gold Band embodies timeless elegance with its classic and minimal design. Crafted in radiant gold, it offers a perfect balance of durability and sophistication. Ideal for daily wear or as a symbol of commitment, this band is a true statement of refined simplicity.",
   },
   {
     id: 3,
     img: Img3,
-    title: "Joi Ring",
+    title: "Adelina Ring",
     description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "A symbol of love and commitment, this ring shines with timeless beauty, capturing the essence of every cherished moment."
   },
 ];
 const TopProducts = ({ handleOrderPopup }) => {
@@ -39,9 +39,8 @@ const TopProducts = ({ handleOrderPopup }) => {
           <h1 data-aos="fade-up" className="text-3xl font-bold">
             Best Products
           </h1>
-          <p data-aos="fade-up" className="text-xs text-gray-400">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-            asperiores modi Sit asperiores modi
+          <p data-aos="fade-up" className="text-xs text-gray-500 dark:text-white">
+           Handpicked designs loved by our customers, Lightweight, elegant, and made for everyday comfort.
           </p>
         </div>
         {/* Body section */}
@@ -69,7 +68,7 @@ const TopProducts = ({ handleOrderPopup }) => {
                   <FaStar className="text-yellow-500" />
                 </div>
                 <h1 className="text-xl font-bold">{data.title}</h1>
-                <p className="text-gray-500 group-hover:text-white duration-300 text-sm line-clamp-2">
+                <p className="text-xs text-black dark:text-white group-hover:text-white duration-300 text-sm line-clamp-2">
                   {data.description}
                 </p>
                 <button
