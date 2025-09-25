@@ -60,61 +60,67 @@ const TopProducts = ({ handleOrderPopup }) => {
       </div>
 
       {/* Swiper Slider */}
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={20}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3000 }}
-        breakpoints={{
-          640: { slidesPerView: 2 }, // small screens
-          768: { slidesPerView: 3 }, // tablets
-          1024: { slidesPerView: 4 }, // desktops
-        }}
-        className="pb-10"
+     <Swiper
+  modules={[Navigation, Pagination, Autoplay]}
+  spaceBetween={10}   // reduced spacing
+  slidesPerView={1}
+  navigation
+  pagination={{ clickable: true }}
+  autoplay={{ delay: 3000 }}
+  breakpoints={{
+    640: { slidesPerView: 2 }, // small screens
+    768: { slidesPerView: 3 }, // tablets
+    1024: { slidesPerView: 4 }, // desktops
+  }}
+  className="pb-10"
+>
+  {ProductsData.map((data) => (
+    <SwiperSlide key={data.id}>
+      <div
+        data-aos="zoom-in"
+        className="rounded-2xl bg-white dark:bg-gray-800 
+                   hover:bg-black/80 dark:hover:bg-primary 
+                   hover:text-white shadow-xl duration-300 
+                   group max-w-[250px] mx-auto"  // smaller card
       >
-        {ProductsData.map((data) => (
-          <SwiperSlide key={data.id}>
-            <div
-              data-aos="zoom-in"
-              className="rounded-2xl bg-white dark:bg-gray-800 hover:bg-black/80 dark:hover:bg-primary hover:text-white shadow-xl duration-300 group max-w-[320px] mx-auto"
-            >
-              {/* Image */}
-              <div className="h-[220px] flex items-center justify-center">
-                <img
-                  src={data.img}
-                  alt={data.title}
-                  className="w-[180px] h-[180px] object-cover rounded-xl block mx-auto transform group-hover:scale-110 duration-300 drop-shadow-lg"
-                />
-              </div>
+        {/* Image */}
+        <div className="h-[180px] flex items-center justify-center">
+          <img
+            src={data.img}
+            alt={data.title}
+            className="w-[140px] h-[140px] object-cover 
+                       rounded-xl block mx-auto transform 
+                       group-hover:scale-110 duration-300 
+                       drop-shadow-lg"
+          />
+        </div>
 
-              {/* Details */}
-              <div className="p-4 text-center">
-                {/* Stars */}
-                <div className="w-full flex items-center justify-center gap-1 mb-2">
-                  <FaStar className="text-yellow-500" />
-                  <FaStar className="text-yellow-500" />
-                  <FaStar className="text-yellow-500" />
-                  <FaStar className="text-yellow-500" />
-                </div>
+        {/* Details */}
+        <div className="p-3 text-center">
+          <div className="w-full flex items-center justify-center gap-1 mb-2">
+            <FaStar className="text-yellow-500" />
+            <FaStar className="text-yellow-500" />
+            <FaStar className="text-yellow-500" />
+            <FaStar className="text-yellow-500" />
+          </div>
+          <h1 className="text-base font-bold">{data.title}</h1>
+          <p className="text-xs text-black dark:text-white group-hover:text-white duration-300 line-clamp-2">
+            {data.description}
+          </p>
+          <button
+            className="bg-primary hover:scale-105 duration-300 
+                       text-white py-1.5 px-4 rounded-full mt-3 
+                       group-hover:bg-white group-hover:text-primary"
+            onClick={handleOrderPopup}
+          >
+            Order Now
+          </button>
+        </div>
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
 
-                <h1 className="text-lg font-bold">{data.title}</h1>
-                <p className="text-sm text-black dark:text-white group-hover:text-white duration-300 line-clamp-2">
-                  {data.description}
-                </p>
-
-                <button
-                  className="bg-primary hover:scale-105 duration-300 text-white py-2 px-5 rounded-full mt-4 group-hover:bg-white group-hover:text-primary"
-                  onClick={handleOrderPopup}
-                >
-                  Order Now
-                </button>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
     </div>
   );
 };
