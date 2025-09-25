@@ -4,26 +4,26 @@ import Slider from "react-slick";
 const TestimonialData = [
   {
     id: 1,
-    name: "Victor",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    name: "Vijay",
+    text: "AluraStone rings are elegant and comfortable. The craftsmanship is excellent, and it feels truly premium for the price.",
     img: "https://picsum.photos/101/101",
   },
   {
     id: 2,
-    name: "Satya Nadella",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    name: "Ram",
+    text: "I bought a ring for my wife, and she absolutely loved it. The design is unique and looks even better in person",
     img: "https://picsum.photos/102/102",
   },
   {
     id: 3,
-    name: "Virat Kohli",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    name: "Aman Kohli",
+    text: "Simple yet classy. I wear my AluraStone ring every day, and it still shines like new",
     img: "https://picsum.photos/104/104",
   },
   {
     id: 5,
-    name: "Sachin Tendulkar",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    name: "Arjun Kumar",
+    text: "Great quality, perfect fit, and fast delivery. AluraStone has become my go-to for gifting rings",
     img: "https://picsum.photos/103/103",
   },
 ];
@@ -79,8 +79,7 @@ const Testimonials = () => {
             Testimonials
           </h1>
           <p data-aos="fade-up" className="text-xs text-gray-500 dark:text-white">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-            asperiores modi Sit asperiores modi
+            Hear from the people who love AluraStone’s timeless rings and elegant designs.
           </p>
         </div>
 

@@ -49,8 +49,7 @@ const Footer = () => {
               Alurastone
             </h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum in
-              beatae ea recusandae blanditiis veritatis.
+              “AluraStone is a modern ring startup crafting elegant, timeless designs that blend everyday comfort with lasting beauty.”
             </p>
           </div>
 
@@ -95,7 +94,7 @@ const Footer = () => {
 
             <div>
               <div className="flex items-center gap-3 mt-6">
-                <a href="#">
+                <a href="https://www.instagram.com/official_alurastone?igsh=bW43YTJqYmo5ang3">
                   <FaInstagram className="text-3xl" />
                 </a>
                 <a href="#">
@@ -108,11 +107,11 @@ const Footer = () => {
               <div className="mt-6">
                 <div className="flex items-center gap-3">
                   <FaLocationArrow />
-                  <p>Noida, Uttar Pradesh</p>
+                  <p>Meerut, Uttar Pradesh</p>
                 </div>
                 <div className="flex items-center gap-3 mt-3">
                   <FaMobileAlt />
-                  <p>+91 123456789</p>
+                  <p>70553 65058</p>
                 </div>
               </div>
             </div>

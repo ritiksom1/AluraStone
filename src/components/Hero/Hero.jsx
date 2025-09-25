@@ -10,21 +10,21 @@ const ImageList = [
     img: Image1,
     title: "Upto 50% off on all Men's Ring",
     description:
-      "lorem His Life will forever be Changed dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Discover bold and timeless designs for men. Elegant rings crafted for style, strength, and everyday confidence.",
   },
   {
     id: 2,
     img: Image2,
     title: "30% off on all Women's Ring",
     description:
-      "Who's there lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Celebrate grace and beauty with our exclusive women’s rings. Delicate, elegant, and designed to shine with you.",
   },
   {
     id: 3,
     img: Image3,
     title: "70% off on all Products Sale",
     description:
-      "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Don’t miss our biggest sale yet! Shop rings from every collection at unbeatable prices while stocks last.",
   },
 ];
 
