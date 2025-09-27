@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import axios from "axios";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// Import product images
 import Img1 from "../../assets/shirt/shirt1.png";
 import Img2 from "../../assets/shirt/shirt2.png";
 import Img3 from "../../assets/shirt/shirt3.png";
@@ -43,84 +43,159 @@ const ProductsData = [
   { id: 16, img: Img16, title: "Classic Heritage Ring", description: "Inspired by tradition, crafted for modern sophistication." },
 ];
 
-const TopProducts = ({ handleOrderPopup }) => {
+const TopProducts = () => {
+  const [openForm, setOpenForm] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    quantity: 1,
+  });
+
+  const handleOrderClick = (product) => {
+    setSelectedProduct(product);
+    setOpenForm(true);
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!selectedProduct) return;
+
+    try {
+      await axios.post("http://localhost:5000/api/orders", {
+        ...formData,
+        productName: selectedProduct.title,
+        productImage: selectedProduct.img,
+      });
+      alert("Order submitted successfully!");
+      setOpenForm(false);
+      setFormData({ name: "", phone: "", address: "", quantity: 1 });
+    } catch (err) {
+      console.error(err);
+      alert("Failed to submit order.");
+    }
+  };
+
   return (
     <div className="container">
       {/* Header */}
       <div className="text-left mb-10">
-        <p data-aos="fade-up" className="text-sm text-primary">
-          Top Rated Products for you
-        </p>
-        <h1 data-aos="fade-up" className="text-3xl font-bold">
-          Best Products
-        </h1>
-        <p data-aos="fade-up" className="text-xs text-gray-500 dark:text-white">
+        <p className="text-sm text-primary">Top Rated Products for you</p>
+        <h1 className="text-3xl font-bold">Best Products</h1>
+        <p className="text-xs text-gray-500 dark:text-white">
           Handpicked designs loved by our customers, lightweight, elegant, and made for everyday comfort.
         </p>
       </div>
 
       {/* Swiper Slider */}
-     <Swiper
-  modules={[Navigation, Pagination, Autoplay]}
-  spaceBetween={10}   // reduced spacing
-  slidesPerView={1}
-  navigation
-  pagination={{ clickable: true }}
-  autoplay={{ delay: 3000 }}
-  breakpoints={{
-    640: { slidesPerView: 2 }, // small screens
-    768: { slidesPerView: 3 }, // tablets
-    1024: { slidesPerView: 4 }, // desktops
-  }}
-  className="pb-10"
->
-  {ProductsData.map((data) => (
-    <SwiperSlide key={data.id}>
-      <div
-        data-aos="zoom-in"
-        className="rounded-2xl bg-white dark:bg-gray-800 
-                   hover:bg-black/80 dark:hover:bg-primary 
-                   hover:text-white shadow-xl duration-300 
-                   group max-w-[250px] mx-auto"  // smaller card
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={10}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 3000 }}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
+        }}
+        className="pb-10"
       >
-        {/* Image */}
-        <div className="h-[180px] flex items-center justify-center">
-          <img
-            src={data.img}
-            alt={data.title}
-            className="w-[140px] h-[140px] object-cover 
-                       rounded-xl block mx-auto transform 
-                       group-hover:scale-110 duration-300 
-                       drop-shadow-lg"
-          />
-        </div>
+        {ProductsData.map((data) => (
+          <SwiperSlide key={data.id}>
+            <div className="rounded-2xl bg-white dark:bg-gray-800 hover:bg-black/80 dark:hover:bg-primary hover:text-white shadow-xl duration-300 group max-w-[250px] mx-auto">
+              <div className="h-[180px] flex items-center justify-center">
+                <img
+                  src={data.img}
+                  alt={data.title}
+                  className="w-[140px] h-[140px] object-cover rounded-xl block mx-auto transform group-hover:scale-110 duration-300 drop-shadow-lg"
+                />
+              </div>
+              <div className="p-3 text-center">
+                <div className="w-full flex items-center justify-center gap-1 mb-2">
+                  <FaStar className="text-yellow-500" />
+                  <FaStar className="text-yellow-500" />
+                  <FaStar className="text-yellow-500" />
+                  <FaStar className="text-yellow-500" />
+                </div>
+                <h1 className="text-base font-bold">{data.title}</h1>
+                <p className="text-xs text-black dark:text-white group-hover:text-white duration-300 line-clamp-2">
+                  {data.description}
+                </p>
+                <button
+                  className="bg-primary hover:scale-105 duration-300 text-white py-1.5 px-4 rounded-full mt-3 group-hover:bg-white group-hover:text-primary"
+                  onClick={() => handleOrderClick(data)}
+                >
+                  Order Now
+                </button>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-        {/* Details */}
-        <div className="p-3 text-center">
-          <div className="w-full flex items-center justify-center gap-1 mb-2">
-            <FaStar className="text-yellow-500" />
-            <FaStar className="text-yellow-500" />
-            <FaStar className="text-yellow-500" />
-            <FaStar className="text-yellow-500" />
+      {/* Order Form Modal */}
+      {openForm && selectedProduct && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl w-80 relative">
+            <button
+              onClick={() => setOpenForm(false)}
+              className="absolute top-2 right-2 text-black dark:text-white font-bold"
+            >
+              X
+            </button>
+            <h2 className="text-lg font-bold mb-3">{selectedProduct.title}</h2>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+              <input
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="border p-2 rounded"
+              />
+              <input
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="border p-2 rounded"
+              />
+              <input
+                name="address"
+                placeholder="Address"
+                value={formData.address}
+                onChange={handleChange}
+                required
+                className="border p-2 rounded"
+              />
+              <input
+                type="number"
+                name="quantity"
+                placeholder="Quantity"
+                value={formData.quantity}
+                min={1}
+                onChange={handleChange}
+                required
+                className="border p-2 rounded"
+              />
+              <button
+                type="submit"
+                className="bg-primary text-white py-2 rounded mt-2"
+              >
+                Submit Order
+              </button>
+            </form>
           </div>
-          <h1 className="text-base font-bold">{data.title}</h1>
-          <p className="text-xs text-black dark:text-white group-hover:text-white duration-300 line-clamp-2">
-            {data.description}
-          </p>
-          <button
-            className="bg-primary hover:scale-105 duration-300 
-                       text-white py-1.5 px-4 rounded-full mt-3 
-                       group-hover:bg-white group-hover:text-primary"
-            onClick={handleOrderPopup}
-          >
-            Order Now
-          </button>
         </div>
-      </div>
-    </SwiperSlide>
-  ))}
-</Swiper>
-
+      )}
     </div>
   );
 };
